@@ -15,7 +15,7 @@ public class ValidWordsImpl implements ValidWords {
 	public static ValidWords getInstance() {
 		return INSTANCE;
 	}
-	Vector v = new Vector();
+	Vector<String> v = new Vector<>();
 
 	private ValidWordsImpl() {
 		try {
