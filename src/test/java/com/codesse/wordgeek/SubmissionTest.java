@@ -6,18 +6,21 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+import com.cantimaginewhy.workgeekapi.logic.Dictionary;
+import com.cantimaginewhy.workgeekapi.logic.DictionaryImpl;
+
 /**
  * Copyright (C) 2022 Codesse. All rights reserved.
  * ••••••••••••••••••••••••••••••••••••••••••••••••
  */
 public class SubmissionTest {
 
-	static ValidWords validWords;
+	static Dictionary validWords;
 	WordGeek service;
 
 	@BeforeClass
 	public static void oneTimeSetUp() {
-		validWords = ValidWordsImpl.getInstance();
+		validWords = DictionaryImpl.getInstance();
 	}
 
 	@Before

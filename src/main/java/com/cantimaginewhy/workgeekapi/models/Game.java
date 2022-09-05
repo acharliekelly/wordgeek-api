@@ -3,23 +3,33 @@ package com.cantimaginewhy.workgeekapi.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+
 import java.util.List;
 import java.util.ArrayList;
 
 @Entity
 public class Game {
   private @Id @GeneratedValue Long id;
-  private String startingWord;
-  private List<WordScore> leaderBoard;
+  protected List<WordEntry> entryList;
+  protected String seed;
+
   
   public Game() {
-    this.leaderBoard = new ArrayList<>();
+    this.entryList = new ArrayList<>();
+    this.seed = "";
   }
 
-  public Game(Long id, String startingWord) {
+  public Game(Long id) {
     this.id = id;
-    this.startingWord = startingWord;
-    this.leaderBoard = new ArrayList<>();
+    this.entryList = new ArrayList<>();
+    seed = "";
+  }
+
+  public Game(Long id, String seed) {
+    this.id = id;
+    this.entryList = new ArrayList<>();
+    this.seed = seed;
   }
 
   public Long getId() {
@@ -30,22 +40,25 @@ public class Game {
     this.id = id;
   }
 
-  public String getStartingWord() {
-    return startingWord;
+  protected WordEntry getEntry(int position) {
+    return getLeaderBoard().get(position);
   }
 
-  public void setStartingWord(String startingWord) {
-    this.startingWord = startingWord;
+  public List<WordEntry> getLeaderBoard() {
+    return entryList.stream().sorted().toList();
   }
 
-  public List<WordScore> getLeaderBoard() {
-    return leaderBoard;
+  public void setLeaderBoard(List<WordEntry> entryList) {
+    this.entryList = entryList;
   }
 
-  public void setLeaderBoard(List<WordScore> leaderBoard) {
-    this.leaderBoard = leaderBoard;
+  public String getSeed() {
+    return seed;
   }
 
-  
+  public void setSeed(String seed) {
+    this.seed = seed;
+  }
+
   
 }

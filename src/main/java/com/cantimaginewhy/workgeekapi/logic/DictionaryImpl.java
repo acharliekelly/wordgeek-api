@@ -1,4 +1,4 @@
-package com.codesse.wordgeek;
+package com.cantimaginewhy.workgeekapi.logic;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,16 +8,16 @@ import java.util.Vector;
  * Copyright (C) 2022 Codesse. All rights reserved.
  * ••••••••••••••••••••••••••••••••••••••••••••••••
  */
-public class ValidWordsImpl implements ValidWords {
+public class DictionaryImpl implements Dictionary {
 
-	private static ValidWordsImpl INSTANCE = new ValidWordsImpl();
+	private static DictionaryImpl INSTANCE = new DictionaryImpl();
 
-	public static ValidWords getInstance() {
+	public static Dictionary getInstance() {
 		return INSTANCE;
 	}
 	Vector<String> v = new Vector<>();
 
-	private ValidWordsImpl() {
+	private DictionaryImpl() {
 		try {
 			InputStreamReader reader = new InputStreamReader(this.getClass().getResourceAsStream("/wordlist.txt"), "utf-8");
 			BufferedReader in = new BufferedReader(reader);

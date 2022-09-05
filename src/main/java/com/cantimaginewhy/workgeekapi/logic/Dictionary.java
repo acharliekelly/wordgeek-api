@@ -1,4 +1,4 @@
-package com.codesse.wordgeek;
+package com.cantimaginewhy.workgeekapi.logic;
 
 /**
  * Copyright (C) 2022 Codesse. All rights reserved.
@@ -6,7 +6,7 @@ package com.codesse.wordgeek;
  *
  * Implementations of this interface guarantee to be thread-safe.
  */
-public interface ValidWords {
+public interface Dictionary {
 
 	/**
 	 * @param word the word to check against the valid words collection

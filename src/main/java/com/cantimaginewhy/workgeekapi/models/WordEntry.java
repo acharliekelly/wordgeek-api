@@ -3,19 +3,22 @@ package com.cantimaginewhy.workgeekapi.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+
 import java.util.Date;
 
 @Entity
-public class WordScore implements Comparable<WordScore> {
+public class WordEntry implements Comparable<WordEntry> {
   private @Id @GeneratedValue Long id; 
   private Date timestamp;
   private String playerName;
   private String word;
   private int score;
 
-  public WordScore() {}
 
-  public WordScore(String playerName, String word) {
+  public WordEntry() {}
+
+  public WordEntry(String playerName, String word) {
     this.playerName = playerName;
     this.word = word;
     this.timestamp = new Date();
@@ -62,11 +65,17 @@ public class WordScore implements Comparable<WordScore> {
     this.score = score;
   }
 
-  public int compareTo(WordScore otherScore) {
-    if (this.score == otherScore.score) {
-      return this.timestamp.compareTo(otherScore.timestamp);
+  public boolean isValid() {
+    return (score > 0);
+  }
+
+
+  @Override
+  public int compareTo(WordEntry otherEntry) {
+    if (this.score == otherEntry.getScore()) {
+      return this.timestamp.compareTo(otherEntry.getTimestamp());
     } else {
-      return Integer.valueOf(this.score).compareTo(otherScore.score);
+      return Integer.valueOf(this.score).compareTo(otherEntry.getScore());
     }
   }
 

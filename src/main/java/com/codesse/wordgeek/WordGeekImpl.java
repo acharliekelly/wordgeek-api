@@ -3,6 +3,8 @@ package com.codesse.wordgeek;
 
 import java.util.HashMap;
 
+import com.cantimaginewhy.workgeekapi.logic.Dictionary;
+
 /**
  * This is the shell implementation of the WordGeek interface.
  * It is the class that you should focus on when developing your solution to the Challenge.
@@ -10,11 +12,11 @@ import java.util.HashMap;
 public class WordGeekImpl implements WordGeek {
 
     private String startingWord;
-    private ValidWords validWords;
+    private Dictionary validWords;
     private LeaderBoard leaderBoard;
 
 
-    public WordGeekImpl(String startingWord, ValidWords validWords) {
+    public WordGeekImpl(String startingWord, Dictionary validWords) {
         this.startingWord = startingWord;
         this.validWords = validWords;
         this.leaderBoard = LeaderBoard.getInstance();
